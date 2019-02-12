@@ -1,3 +1,5 @@
+"""This is the 'main' file that runs the game"""
+
 import pygame
 
 from pygame.sprite import Group

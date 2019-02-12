@@ -1,3 +1,5 @@
+"""This file defines the ship class"""
+
 import pygame
 from pygame.sprite import Sprite
 

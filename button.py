@@ -1,3 +1,5 @@
+"""This file creates the Buttons for the menu"""
+
 import pygame.ftfont
 
 

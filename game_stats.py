@@ -1,3 +1,6 @@
+"""This file defines the game stats class."""
+
+
 class GameStats:
     """Track statistics for the game"""
 

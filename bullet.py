@@ -1,3 +1,5 @@
+"""This file creates the bullet class"""
+
 import pygame
 from pygame.sprite import Sprite
 

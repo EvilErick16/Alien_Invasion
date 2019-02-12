@@ -1,3 +1,5 @@
+"""This file creates the Alien class"""
+
 import pygame
 from pygame.sprite import Sprite
 

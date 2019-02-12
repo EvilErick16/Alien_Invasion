@@ -1,3 +1,6 @@
+"""This file defines the scoreboard class.
+   it shows the score, high score, level, and lives remaining"""
+
 import pygame.ftfont
 from pygame.sprite import Group
 

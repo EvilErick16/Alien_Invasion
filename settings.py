@@ -1,3 +1,6 @@
+"""This file stores the settings of the game."""
+
+
 class Settings:
     """A class to store all settings for Alien Invasion."""
 

@@ -1,3 +1,5 @@
+"""This file contains the definitions to all of the game's functions"""
+
 import sys
 from time import sleep
 
