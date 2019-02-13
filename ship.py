@@ -11,14 +11,23 @@ class Ship(Sprite):
         """Initialize the ship and set its starting position."""
         # Ship constructor, takes in an array of values
         super(Ship, self).__init__()
-        sprite_sheet = SpriteSheet("")
+        sprite_sheet = SpriteSheet("sprite_sheet.png")
+
+        # Grab the image for this platform (x, y, width, length)
+        self.image = sprite_sheet.get_image(sprite_sheet_data[0],
+                                            sprite_sheet_data[1],
+                                            sprite_sheet_data[2],
+                                            sprite_sheet_data[3])
+        self.rect = self.image.get_rect()
+
+        # Get the screen size and the settings info
         self.screen = screen
         self.ai_settings = ai_settings
+        self.screen_rect = screen.get_rect()
 
         # Load the ship image and get its rect.
-        self.image = pygame.image.load('images/ship.bmp')
-        self.rect = self.image.get_rect()
-        self.screen_rect = screen.get_rect()
+        # self.image = pygame.image.load('images/ship.bmp')
+        # self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.
         self.rect.centerx = self.screen_rect.centerx
