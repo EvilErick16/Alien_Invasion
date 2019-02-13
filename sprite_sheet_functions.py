@@ -1,4 +1,4 @@
-"""This file is used to create the sprite animations."""
+"""This file is used to get sprites from the sprite sheet."""
 
 import pygame
 

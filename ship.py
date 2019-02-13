@@ -2,13 +2,16 @@
 
 import pygame
 from pygame.sprite import Sprite
+from sprite_sheet_functions import SpriteSheet
 
 
 class Ship(Sprite):
 
-    def __init__(self, ai_settings, screen):
+    def __init__(self, ai_settings, screen, sprite_sheet_data):
         """Initialize the ship and set its starting position."""
+        # Ship constructor, takes in an array of values
         super(Ship, self).__init__()
+        sprite_sheet = SpriteSheet("")
         self.screen = screen
         self.ai_settings = ai_settings
 
