@@ -16,9 +16,10 @@ def run_game():
     pygame.init()
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_caption("Space Invaders!")
 
     play_button = Button(ai_settings, screen, "PLAY")
+    high_scores = Button(ai_settings, screen, "HIGH SCORES")
 
     # Create an instance to store game statistics and scoreboard.
     stats = GameStats(ai_settings)
@@ -43,6 +44,10 @@ def run_game():
             ship.update()
             gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets)
             gf.update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets)
+
+        else:
+            # Draw the menu screen
+            gf.title_screen(ai_settings, screen)
 
         # Update the screen
         gf.update_screen(ai_settings, screen, stats, sb, ship,
