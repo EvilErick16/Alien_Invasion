@@ -32,9 +32,9 @@ class EventHandler:
         """All functions related to aliens."""
         def __init__(self):
 
-        def get_number_of_aliens_x(self):
+        # def get_number_of_aliens_x(self):
 
-        def get_number_of_rows(self):
+        # def get_number_of_rows(self):
 
         def create_alien(self):
 

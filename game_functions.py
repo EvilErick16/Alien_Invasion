@@ -266,5 +266,5 @@ def check_high_score(stats, sb):
 def title_screen(ai_settings, screen):
     """If the game status is not active, draw title screen."""
     background_color = ai_settings.bg_color
-    screen.fill(ai_settings.bg_color)
+    screen.fill(background_color)
 
