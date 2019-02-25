@@ -3,8 +3,18 @@
     <words>
       <w>blitme</w>
       <w>centerx</w>
+      <w>enemylaser</w>
+      <w>explosionblue</w>
+      <w>explosiongreen</w>
+      <w>explosionpurple</w>
+      <w>invaderkilled</w>
       <w>keydown</w>
       <w>keyup</w>
+      <w>leftbullet</w>
+      <w>mysterykilled</w>
+      <w>rightbullet</w>
+      <w>xpos</w>
+      <w>ypos</w>
     </words>
   </dictionary>
 </component>

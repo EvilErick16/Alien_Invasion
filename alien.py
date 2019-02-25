@@ -1,75 +1,70 @@
-"""This file creates the Alien class"""
+"""This file creates the Alien and the Alien explosions """
 
-import pygame
+from pygame import *
 from pygame.sprite import Sprite
 
 
-class Alien(Sprite):
-    """A class to represent a single alien in the fleet."""
-
-    def __init__(self, ai_settings, screen):
-        """Initialize the alien and set its starting position."""
-        super(Alien, self).__init__()
-        self. screen = screen
-        self.ai_settings = ai_settings
-
-        # Load the alien image and set its rect attribute
-        self.image = pygame.image.load('images/alien.bmp')
+class Aliens(Sprite):
+    def __init__(self, screen,  row, column):
+        Sprite.__init__(self)
+        self.screen = screen
+        self.row = row
+        self.column = column
+        self.images = []
+        self.load_images()
+        self.index = 0
+        self.image = self.images[self.index]
         self.rect = self.image.get_rect()
 
-        # Start each new alien near the top of left of the screen
-        self.rect.x = self.rect.width
-        self.rect.y = self.rect.height
+    def toggle_image(self):
+        self.index += 1
+        if self.index >= len(self.images):
+            self.index = 0
+        self.image = self.images[self.index]
 
-        # Store the alien's exact position.
-        self.x = float(self.rect.x)
-
-    def blitme(self):
-        """Draw the alien at its current location"""
+    def update(self, *args):
         self.screen.blit(self.image, self.rect)
 
-    def check_edges(self):
-        """return True if alien is at edge of screen."""
-        screen_rect = self.screen.get_rect()
-        if self.rect.right >= screen_rect.right:
-            return True
-        elif self.rect.left <= 0:
-            return True
+    def load_images(self):
+        image_names = ['enemy1_1', 'enemy1_2',
+                       'enemy2_1', 'enemy2_2',
+                       'enemy3_1', 'enemy3_2']
+        load_images = {name: image.load('images/' + '{}.png'.format(name)).convert_alpha() for name in image_names}
 
-    def update(self):
-        """Move the alien right or left."""
-        self.x += (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
-        self.rect.x = self.x
+        images = {0: ['1_2', '1_1'],
+                  1: ['2_2', '2_1'],
+                  2: ['2_2', '2_1'],
+                  3: ['3_1', '3_2'],
+                  4: ['3_1', '3_2'],
+                  }
+        img1, img2 = (load_images['enemy{}'.format(img_num)] for img_num in
+                      images[self.row])
+        self.images.append(transform.scale(img1, (40, 35)))
+        self.images.append(transform.scale(img2, (40, 35)))
 
-    def get_number_aliens_x(self, ai_settings, alien_width):
-        """determine number of aliens that fit in a row."""
-        available_space_x = ai_settings.screen_width - 2 * alien_width
-        number_aliens_x = int(available_space_x / (2 * alien_width))
-        return number_aliens_x
 
-    def get_number_rows(self, ai_settings, ship_height, alien_height):
-        """Determine the number of rows of aliens that fit in the screen."""
-        available_space_y = (ai_settings.screen_height - (3 * alien_height) - ship_height)
-        number_rows = int(available_space_y / (2 * alien_height))
-        return number_rows
+class AlienExplosion(Sprite):
+    def __init__(self, screen,  enemy, *groups):
+        super(AlienExplosion, self).__init__(*groups)
+        self.screen = screen
+        self.image = transform.scale(self.get_image(enemy.row), (40, 35))
+        self.image2 = transform.scale(self.get_image(enemy.row), (50, 45))
+        self.rect = self.image.get_rect(topleft=(enemy.rect.x, enemy.rect.y))
+        self.timer = time.get_ticks()
 
-    def create_alien(self, ai_settings, screen, aliens, alien_number, row_number):
-        """Create an alien and place it in the row."""
-        alien = Alien(ai_settings, screen)
-        alien_width = alien.rect.width
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
-        aliens.add(alien)
+    @staticmethod
+    def get_image(row):
+        image_names = ['explosionblue', 'explosiongreen', 'explosionpurple']
+        images_load = {name: image.load('images/' + '{}.png'.format(name)).convert_alpha()
+                       for name in image_names}
+        img_colors = ['purple', 'blue', 'blue', 'green', 'green']
+        return images_load['explosion{}'.format(img_colors[row])]
 
-    def create_fleet(self, ai_settings, screen, ship, aliens):
-        """Create a full fleet of aliens."""
-        # Create an alien field and find the number of aliens in a row
-        alien = Alien(ai_settings, screen)
-        number_aliens_x = self.get_number_aliens_x(ai_settings, alien.rect.width)
-        number_rows = self.get_number_rows(ai_settings, ship.rect.height, alien.rect.height)
-
-        # Create the fleet of aliens.
-        for row_number in range(number_rows):
-            for alien_number in range(number_aliens_x):
-                self.create_alien(ai_settings, screen, aliens, alien_number, row_number)
+    def update(self, current_time, *args):
+        passed = current_time - self.timer
+        if passed <= 100:
+            self.screen.blit(self.image, self.rect)
+        elif passed <= 200:
+            self.screen.blit(self.image2, (self.rect.x - 6, self.rect.y - 6))
+        elif 400 < passed:
+            self.kill()

@@ -1,48 +1,59 @@
-"""This file defines the ship class"""
+"""This file defines the ship, ship explosion, and the life classes"""
 
-import pygame
+from pygame import *
 from pygame.sprite import Sprite
 
 
 class Ship(Sprite):
-
-    def __init__(self, ai_settings, screen):
+    def __init__(self, screen):
         """Initialize the ship and set its starting position."""
         super(Ship, self).__init__()
         self.screen = screen
-        self.ai_settings = ai_settings
+        self.screen_rect = screen.get_rect()
+        self.moving_left = False
+        self.moving_right = False
 
         # Load the ship image, and get its rect.
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = image.load('images/truck.png')
         self.rect = self.image.get_rect()
-        self.screen_rect = screen.get_rect()
-
-        # Start each new ship at the bottom center of the screen.
-        self.rect.centerx = self.screen_rect.centerx
+        self.rect.centerx = self. screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
+        self.speed = 5
 
-        # Store a decimal value for the ship's center.
-        self.center = float(self.rect.centerx)
-
-        # Movement flags.
-        self.moving_right = False
-        self.moving_left = False
-
-    def update(self):
-        """Update the ship's position based on movement flags"""
+    def update(self, key_press, *args):
+        """Update the ship's position"""
         # Update the ship's center value
-        if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.center += self.ai_settings.ship_speed_factor
-        elif self.moving_left and self.rect.left > 0:
-            self.center -= self.ai_settings.ship_speed_factor
-
-        # Update the rectangle object to center
-        self.rect.centerx = self.center
-
-    def build(self):
-        """Draw the ship at its current location."""
+        if self.moving_left and self.rect.x > 5:
+            self.rect.centerx -= self.speed
+        elif self.moving_right and self.rect.x < 800:
+            self.rect.centerx += self.speed
+        # Update the ship
         self.screen.blit(self.image, self.rect)
 
-    def center_ship(self):
-        """Center the ship on the screen."""
-        self.center = self.screen_rect.centerx
+
+class ShipExplosion(Sprite):
+    def __init__(self, screen, ship, *groups):
+        super(ShipExplosion, self).__init__(*groups)
+        self.screen = screen
+        self.image = image.load('images/explosionblue.png')
+        self.rect = self.image.get_rect(topleft=(ship.rect.x, ship.rect.y))
+        self.timer = time.get_ticks()
+
+    def update(self, current_time, *args):
+        passed = current_time - self.timer
+        if 300 < passed <= 600:
+            self.screen.blit(self.image, self.rect)
+        elif 900 < passed:
+            self.kill()
+
+
+class Life(sprite.Sprite):
+    def __init__(self, screen,  xpos, ypos):
+        self.screen = screen
+        sprite.Sprite.__init__(self)
+        self.image = image.load('images/truck.png')
+        self.image = transform.scale(self.image, (23, 23))
+        self.rect = self.image.get_rect(topleft=(xpos, ypos))
+
+    def update(self, *args):
+        self.screen.blit(self.image, self.rect)
