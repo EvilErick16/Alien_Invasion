@@ -143,11 +143,11 @@ class SpaceInvaders(object):
 
         for ufo in sprite.groupcollide(self.ufo_group, self.bullets,
                                        True, True).keys():
-            ufo.mysteryEntered.stop()
+            # ufo.mysteryEntered.stop()
             # self.sounds['mysterykilled'].play()
             score = self.calculate_score(ufo.row)
             UfoExplosion(self.screen, ufo, score, self.explosionsGroup)
-            new_ufo = ufo()
+            new_ufo = Ufo(self.screen)
             self.allSprites.add(new_ufo)
             self.ufo_group.add(new_ufo)
 
