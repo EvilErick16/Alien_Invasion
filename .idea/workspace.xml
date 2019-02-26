@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f563bf12-7a06-4d06-9dc7-ee4338d97b59" name="Default Changelist" comment="updated images">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f563bf12-7a06-4d06-9dc7-ee4338d97b59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/event_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/event_handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,15 +12,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fleet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="39" selection-start-column="39" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ufo.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,9 +30,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/images/truck.png">
           <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/event_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -151,12 +151,12 @@
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/alien_invasion.py" />
         <option value="$PROJECT_DIR$/bunker.py" />
-        <option value="$PROJECT_DIR$/event_handler.py" />
         <option value="$PROJECT_DIR$/fleet.py" />
         <option value="$PROJECT_DIR$/ufo.py" />
         <option value="$PROJECT_DIR$/alien.py" />
         <option value="$PROJECT_DIR$/ship.py" />
         <option value="$PROJECT_DIR$/bullet.py" />
+        <option value="$PROJECT_DIR$/event_handler.py" />
       </list>
     </option>
   </component>
@@ -273,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551137722409</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated images">
+      <created>1551147123769</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1551147123769</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -289,7 +296,7 @@
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1518283" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1518283" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -340,7 +347,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working on ship sprite" />
     <MESSAGE value="Finished the game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the game" />
+    <MESSAGE value="updated images" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated images" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/images/alien.bmp" />
@@ -370,16 +378,6 @@
     <entry file="file://$PROJECT_DIR$/images/background.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/event_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="64" selection-start-column="64" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fleet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -391,9 +389,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="63" selection-start-column="63" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -401,9 +396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="56" selection-start-column="56" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -417,9 +409,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="67" selection-start-column="67" selection-end-column="67" />
-          <folding>
-            <element signature="e#39#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -449,6 +438,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/images/truck.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/event_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
