@@ -14,7 +14,7 @@ class Ship(Sprite):
         self.moving_right = False
 
         # Load the ship image, and get its rect.
-        self.image = image.load('images/truck.png')
+        self.image = image.load('images/Truck.png')
         self.rect = self.image.get_rect()
         self.rect.centerx = self. screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
@@ -51,7 +51,7 @@ class Life(sprite.Sprite):
     def __init__(self, screen,  xpos, ypos):
         self.screen = screen
         sprite.Sprite.__init__(self)
-        self.image = image.load('images/truck.png')
+        self.image = image.load('images/Truck.png')
         self.image = transform.scale(self.image, (23, 23))
         self.rect = self.image.get_rect(topleft=(xpos, ypos))
 
